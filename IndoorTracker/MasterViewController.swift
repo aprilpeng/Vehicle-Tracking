@@ -8,15 +8,31 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, EILIndoorLocationManagerDelegate  {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
+    let locationManager = EILIndoorLocationManager()
+    var location: EILLocation!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.locationManager.delegate = self
+        ESTConfig.setupAppID("nnorton24-gmail-com-s-app-1tu", andAppToken: "6841267a250fd074443fa773c723bf08")
+        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "nnorton24-s-location-dkz")
+        fetchLocationRequest.sendRequestWithCompletion { (location, error) in
+            if location != nil {
+                self.location = location!
+                self.locationManager.startPositionUpdatesForLocation(self.location)
+                print(location?.area)
+            } else {
+                print("can't fetch location: \(error)")
+            }
+        }
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
@@ -25,6 +41,7 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+    
     }
 
     override func viewWillAppear(animated: Bool) {

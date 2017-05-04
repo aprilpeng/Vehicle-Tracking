@@ -16,6 +16,8 @@
 		FC26234D1A54F548007177BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC26234B1A54F548007177BC /* LaunchScreen.storyboard */; };
 		FC2623581A54F548007177BC /* IndoorTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2623571A54F548007177BC /* IndoorTrackerTests.swift */; };
 		FC2623631A54F549007177BC /* IndoorTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2623621A54F549007177BC /* IndoorTrackerUITests.swift */; };
+		FC6F2E211EBAC15600A0DBC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2623441A54F548007177BC /* DetailViewController.swift */; };
+		FC6F2E221EBAC15900A0DBC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2623441A54F548007177BC /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +55,7 @@
 		FC26235E1A54F549007177BC /* IndoorTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IndoorTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2623621A54F549007177BC /* IndoorTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorTrackerUITests.swift; sourceTree = "<group>"; };
 		FC2623641A54F549007177BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCB44D531E563A3800261686 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		FCB44D531E563A3800261686 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjCBridge.h; path = ../ObjCBridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,6 @@
 		FC2623341A54F548007177BC = {
 			isa = PBXGroup;
 			children = (
-				FCB44D531E563A3800261686 /* ObjCBridge.h */,
 				FC26233F1A54F548007177BC /* IndoorTracker */,
 				FC2623561A54F548007177BC /* IndoorTrackerTests */,
 				FC2623611A54F549007177BC /* IndoorTrackerUITests */,
@@ -125,6 +126,7 @@
 		FC26233F1A54F548007177BC /* IndoorTracker */ = {
 			isa = PBXGroup;
 			children = (
+				FCB44D531E563A3800261686 /* ObjCBridge.h */,
 				FC2623401A54F548007177BC /* AppDelegate.swift */,
 				FC2623421A54F548007177BC /* MasterViewController.swift */,
 				FC2623441A54F548007177BC /* DetailViewController.swift */,
@@ -347,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC2623581A54F548007177BC /* IndoorTrackerTests.swift in Sources */,
+				FC6F2E211EBAC15600A0DBC2 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC2623631A54F549007177BC /* IndoorTrackerUITests.swift in Sources */,
+				FC6F2E221EBAC15900A0DBC2 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.IndoorTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = ./ObjCBridge.h;
 			};
 			name = Debug;
 		};
@@ -500,7 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.IndoorTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = ./ObjCBridge.h;
 			};
 			name = Release;
 		};

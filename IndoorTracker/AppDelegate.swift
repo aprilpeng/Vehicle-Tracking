@@ -56,6 +56,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }
+    
+    func indoorLocationManager(manager: EILIndoorLocationManager!,
+        didFailToUpdatePositionWithError error: NSError!) {
+            print("failed to update position: \(error)")
+    }
+    
+    func indoorLocationManager(manager: EILIndoorLocationManager!,
+        didUpdatePosition position: EILOrientedPoint!,
+        withAccuracy positionAccuracy: EILPositionAccuracy,
+        inLocation location: EILLocation!) {
+            var accuracy: String!
+            switch positionAccuracy {
+            case .VeryHigh: accuracy = "+/- 1.00m"
+            case .High:     accuracy = "+/- 1.62m"
+            case .Medium:   accuracy = "+/- 2.62m"
+            case .Low:      accuracy = "+/- 4.24m"
+            case .VeryLow:  accuracy = "+/- ? :-("
+            case .Unknown:  accuracy = "unknown"
+            }
+            print(String(format: "x: %5.2f, y: %5.2f, orientation: %3.0f, accuracy: %@",
+                position.x, position.y, position.orientation, accuracy))
+    }
 
 }
 
